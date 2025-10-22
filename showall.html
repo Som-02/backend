@@ -1,0 +1,139 @@
+<html lang="en">
+<head>
+    <title>showall</title>
+    <link rel="stylesheet" href="showall.css">
+    <style>     
+/* --- Center the search bar --- */
+.search-bar {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- Keep your existing search bar styling --- */
+.search-bar input {
+  width: 420px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.search-bar button {
+  background: linear-gradient(135deg, #ff4081, #ff6b6b);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 22px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.search-bar button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 64, 129, 0.4);
+}
+    </style>
+</head>
+<body>
+    <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search playlists, artists or albums...">
+    <button onclick="searchItems()">Search</button>
+  </div>
+    <br>
+    <br>
+    <h1>Artists</h1>
+    <section id="playlists" class="content-section">
+        <div class="image-container">
+            <a href="sonunigam.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Tri_Nation_Mega_Concert_Sonu_Nigam_%288388639915%29.jpg">
+            <div class="play-icon">&#9658;</div></a>
+        </div>
+        <div class="image-container">
+            <a href="shreyaghoshal.html">
+            <img src="https://images.news18.com/ibnlive/uploads/2024/03/shreya-ghoshal-birthday-2024-03-46d00c2b11d7bea31ac9517d993f61f1.jpg">
+            <div class="play-icon">&#9658;</div></a>
+        </div>
+        <div class="image-container">
+            <a href="arijitsingh.html">
+            <img src="https://i.scdn.co/image/ab676161000051745ba2d75eb08a2d672f9b69b7">
+           <div class="play-icon">&#9658;</div></a>
+        </div>
+        <div class="image-container">
+            <a href="edsheeran.html">
+            <img src="https://www.apple.com/newsroom/images/product/music/standard/Apple-Music-Live-Ed-Sheeran-with-guitar_big.jpg.large.jpg">
+           <div class="play-icon">&#9658;</div></a>
+        </div>
+        <div class="image-container">
+            <a href="shaan.html">
+            <img src="https://i.scdn.co/image/ab676161000051742573d940f1062a6646891e50">
+            <div class="play-icon">&#9658;</div></a>
+        </div>
+        <div class="image-container">
+            <a href="zayn.html">
+            <img src="https://i.pinimg.com/originals/39/73/b7/3973b7db1a1e622fa933c959d62f06c9.jpg">
+           <div class="play-icon">&#9658;</div></a>
+        </div>
+        <div class="image-container">
+            <a href="shawn.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiONwMmU2G4vWjt-sEOrYE_0gkZ2UfuUM5UA&s">
+           <div class="play-icon">&#9658;</div></a>
+        </div>
+        <div class="image-container">
+            <a href="diljit.html">
+            <img src="https://imgmedia.lbb.in/media/2024/09/66e17baa630d00121087b7fc_1726053290550.jpg">
+           <div class="play-icon">&#9658;</div></a>
+        </div>
+        <div class="image-container">
+            <a href="anuv.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDEb-mI20p3jVlWkUtS2ugSeAu-M3BmAWlJu-3KoMLky7SK2YdfVKLuUN-__Ly-Qw5xBE&usqp=CAU">
+           <div class="play-icon">&#9658;</div></a>
+        </div>
+        <div class="image-container">
+            <a href="adele.html">
+            <img src="https://ca-times.brightspotcdn.com/dims4/default/45599e3/2147483647/strip/true/crop/2100x3000+0+0/resize/1200x1714!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fd7%2Fec%2F9c6103094901b6351f07c96550c9%2Fla-ca-adele-one-night-only-196.JPG">
+           <div class="play-icon">&#9658;</div></a>
+        </div>
+    </section>
+    <script>
+function searchItems() {
+  const input = document.getElementById('searchInput').value.toLowerCase().trim();
+  const section = document.getElementById('playlists');
+  const items = section.getElementsByClassName('image-container');
+
+  let hasMatch = false;
+
+  for (let i = 0; i < items.length; i++) {
+    const img = items[i].querySelector('img');
+    const altText = img.alt ? img.alt.toLowerCase() : '';
+    const href = items[i].querySelector('a').getAttribute('href').toLowerCase();
+    
+    // Combine both alt text and href (for better matching)
+    if (altText.includes(input) || href.includes(input) || input === '') {
+      items[i].style.display = "inline-block";
+      hasMatch = true;
+    } else {
+      items[i].style.display = "none";
+    }
+  }
+
+  // Optional: reset to full grid if no input
+  if (input === '') {
+    for (let i = 0; i < items.length; i++) {
+      items[i].style.display = "inline-block";
+    }
+  }
+}
+
+// Optional: live search while typing
+document.getElementById("searchInput").addEventListener("keyup", searchItems);
+</script>
+
+</body>
+</html>

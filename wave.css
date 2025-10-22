@@ -1,0 +1,273 @@
+/* ===== Base Layout ===== */
+/* ===== Base Layout ===== */
+html, body {
+  height: 100%;              /* make the page fill full height */
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;    /* stack header, content, footer vertically */
+  font-family: Arial, sans-serif;
+  color: white;
+  background-color: #101f30;
+  background-image: url("image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* This ensures your main content grows to push footer down */
+section {
+  flex: 1;
+}
+
+/* ===== Footer ===== */
+footer {
+  color: white;
+  padding: 0px;
+  text-align: center;
+  font-size: 0.9em;
+  background: rgba(16, 31, 48, 0.6); /* optional soft background */
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ===== Header ===== */
+header {
+  padding: 40px 10px;
+  text-align: center;
+  color: rgb(0, 255, 166);
+  text-shadow: 1px 7px 30px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.Logo img {
+  padding-top: 20px;
+  height: 150px;
+  mix-blend-mode: color-dodge;
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-section h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.3em;
+  margin-bottom: 10px;
+  color: rgb(0, 255, 166);
+  text-shadow: 1px 7px 30px;
+}
+
+.hero-section p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: rgb(0, 255, 166);
+  text-shadow: 1px 7px 30px;
+}
+
+/* ===== Button ===== */
+.button {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: rgb(0, 255, 166);
+  color: #101f30;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 100px;
+  font-size: 1.2em;
+  box-shadow: 1px 7px 18px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgb(234, 255, 0);
+  box-shadow: rgb(234, 255, 0) 1px 5px 18px;
+}
+
+
+
+/* ===== Login Forms ===== */
+.login-form,
+.login-form-left {
+  position: fixed;
+  width: 250px;
+  padding: 25px;
+  background-color: rgba(16, 31, 48, 0.8);
+  border: 1px solid deeppink;
+  border-radius: 20px;
+  box-shadow: 0px 0px 60px rgb(255, 0, 140);
+  backdrop-filter: blur(6px);
+}
+
+.login-form {
+  top: 450px;
+  right: 60px;
+}
+
+.login-form-left {
+  top: 550px;
+  left: 60px;
+}
+
+/* ===== Input Styles ===== */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid rgb(0, 255, 166);
+  border-radius: 10px;
+  background-color: transparent;
+  color: white;
+}
+
+.login-form input::placeholder {
+  color: #aefee0;
+}
+
+.login-form input[type="submit"] {
+  width: 75%;
+  height: 35px;
+  background-color: rgb(0, 255, 166);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: rgb(234, 255, 0);
+  box-shadow: rgb(234, 255, 0) 1px 5px 18px;
+}
+
+.login-form .forgot-password,
+.login-form-left .sign-up {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  color: orangered;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.login-form .forgot-password:hover,
+.login-form-left .sign-up:hover {
+  text-decoration: underline;
+  color: #ff6f61;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .login-form {
+    top: auto;
+    bottom: 60px;
+    right: 20px;
+    width: 220px;
+  }
+
+  .login-form-left {
+    top: auto;
+    bottom: 60px;
+    left: 20px;
+    width: 220px;
+  }
+
+  .Logo img {
+    height: 120px;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  body {
+    overflow: auto;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  .hero-section h2 {
+    font-size: 1.7em;
+  }
+
+  .hero-section p {
+    font-size: 1em;
+  }
+
+  .login-form,
+  .login-form-left {
+    position: static;
+    width: 85%;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .login-form-left {
+    margin-bottom: 30px;
+  }
+
+  footer {
+    margin-bottom: 0px;
+  }
+
+  .Logo img {
+    height: 100px;
+  }
+
+  .button {
+    font-size: 1em;
+    padding: 12px 25px;
+  }
+}
+/* === Glow & shake animation when user must login === */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgb(255, 0, 140);
+    transform: scale(1);
+  }
+  25% {
+    box-shadow: 0 0 30px rgb(0, 255, 166);
+    transform: scale(1.05);
+  }
+  50% {
+    box-shadow: 0 0 40px rgb(255, 0, 140);
+    transform: scale(1);
+  }
+  75% {
+    box-shadow: 0 0 30px rgb(0, 255, 166);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 10px rgb(255, 0, 140);
+    transform: scale(1);
+  }
+}
+
+.glow-effect {
+  animation: glowPulse 1.2s ease-in-out;
+  border: 2px solid rgb(0, 255, 166);
+  filter: brightness(1.4);
+}
+

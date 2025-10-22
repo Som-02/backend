@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Wave</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+  <link rel="stylesheet" href="wave.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Music Wave</h1>
+      <div class="Logo">
+        <img src="logo.png" alt="Music Wave Logo" />
+      </div>
+    </div>
+  </header>
+
+  <section id="home" class="hero-section">
+    <div class="login-form-left">
+      <form action="#">
+        <p>Don't have an account?</p>
+        <a href="newlogin.html" class="sign-up">Sign up for Music Wave</a>
+      </form>
+    </div>
+
+    <h2>Welcome to Music Wave</h2>
+    <p>Discover, Listen, and Enjoy Your Favorite Music</p>
+
+    <div class="login-form">
+      <h2>Login</h2>
+      <form onsubmit="return login(event)">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <input type="submit" value="Login" />
+        <a href="#" class="forgot-password">Forgot Password?</a>
+      </form>
+    </div>
+
+    <a href="demo.html" class="button">Explore Playlists</a>
+  </section>
+
+  <footer>
+    <p>&copy;2024 Music Wave. All rights reserved by Somnath.</p>
+  </footer>
+
+  <script>
+  // ✅ Always reset login when arriving at index page
+  window.addEventListener("DOMContentLoaded", () => {
+    localStorage.removeItem("isLoggedIn"); // force re-login each time home is opened
+
+    const exploreBtn = document.querySelector(".button");
+    const loginForm = document.querySelector(".login-form");
+    const signUpBox = document.querySelector(".login-form-left");
+
+    exploreBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+      if (!isLoggedIn) {
+        // Glow + shake animation
+        loginForm.classList.add("glow-effect");
+        signUpBox.classList.add("glow-effect");
+
+        setTimeout(() => {
+          loginForm.classList.remove("glow-effect");
+          signUpBox.classList.remove("glow-effect");
+        }, 1200);
+        return;
+      }
+
+      // If logged in → go to demo page
+      window.location.href = "demo.html";
+    });
+  });
+
+  // ✅ Login function
+  async function login(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    const res = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await res.json();
+    alert(data.message);
+
+    if (res.ok) {
+      localStorage.setItem("isLoggedIn", "true");
+      window.location.href = "demo.html"; // redirect after successful login
+    }
+    return false;
+  }
+  </script>
+</body>
+</html>

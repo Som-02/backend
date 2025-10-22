@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Playlists</title>
+  <link rel="stylesheet" href="demo2.css">
+</head>
+<body><div class="top-controls">
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search playlists, artists or albums...">
+    <button onclick="searchItems()">Search</button>
+  </div>
+  <br><br>
+
+  <div id="mood-controls">
+    <label for="mood">Pick mood:</label>
+    <select id="mood">
+      <option value="">--Select mood or activity--</option>
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="study">Study</option>
+      <option value="gym">Gym</option>
+      <option value="romantic">Romantic</option>
+      <option value="calm">Calm</option>
+      <option value="coding">Coding</option>
+      <option value="sleeping">Sleeping</option>
+      <option value="driving">Driving</option>
+    </select>
+    <button id="generate">Generate Playlist</button>
+  </div>
+</div>
+
+<div id="generatedPlaylist"></div>
+
+
+  <section id="playlists" class="content-section">
+    <div class="popular">
+      <h1>Playlists</h1>
+      <div class="show">
+        <a href="showall3.html"><h3>Show all</h3></a>
+      </div>
+    </div>
+    <div class="container" id="playlist-container"></div>
+    <br><br>
+
+    <div class="popular">
+      <h1>Artists</h1>
+      <div class="show">
+        <a href="showall.html"><h3>Show all</h3></a>
+      </div>
+    </div>
+    <div class="container" id="artist-container"></div>
+    <br><br>
+
+    <div class="popular">
+      <h1>Albums</h1>
+      <div class="show">
+        <a href="showall2.html"><h3>Show all</h3></a>
+      </div>
+    </div>
+    <div class="container" id="album-container"></div>
+    <br><br>
+  </section>
+
+  <script src="data.js"></script>
+  <script src="data2.js"></script>
+</body>
+</html>

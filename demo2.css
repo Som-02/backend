@@ -1,0 +1,247 @@
+body {
+  background-color: #11253c;
+  color: whitesmoke;
+  background-image: url("image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: soft-light;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Hide scrollbar */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Section Headings and Show-All Layout --- */
+.content-section {
+  padding: 20px 60px;
+}
+
+.content-section .popular {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  gap: 10px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.content-section .popular h1 {
+  font-size: 28px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+/* Remove absolute positioning */
+.show {
+  margin: 0;
+}
+
+.content-section .popular a {
+  color: white;
+  text-shadow: 0 0 15px white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.content-section .popular a:hover {
+  color: rgb(0, 255, 166);
+  text-shadow: 0 0 25px rgb(0, 255, 166);
+}
+
+/* --- Containers holding playlist/artist/album --- */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: flex-start;
+}
+
+/* --- Image layout --- */
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 1px 1px 30px rgb(180, 181, 181);
+}
+
+.play-icon {
+  font-size: 25px;
+  color: white;
+  position: absolute;
+  top: 74%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background-color: rgb(0, 255, 166);
+  padding: 10px;
+  border-radius: 80%;
+}
+
+.image-container:hover .play-icon {
+  display: block;
+  cursor: pointer;
+}
+
+/* --- Search and Mood Controls --- */
+.top-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar input {
+  width: 420px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.search-bar button {
+  background: linear-gradient(135deg, #ff4081, #ff6b6b);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 22px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.search-bar button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 64, 129, 0.4);
+}
+
+/* Mood controls */
+#mood-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 10px 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  flex-wrap: wrap;
+}
+
+#mood-controls label {
+  font-weight: 600;
+  color: #fff;
+}
+
+#mood-controls select {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+#mood-controls button {
+  background: linear-gradient(135deg, #ff6b6b, #f9c74f);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 9px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#mood-controls button:hover {
+  transform: scale(1.05);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .content-section {
+    padding: 20px 30px;
+  }
+
+  .search-bar input {
+    width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-bar input {
+    width: 260px;
+  }
+
+  .content-section .popular {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .content-section .popular h1 {
+    font-size: 22px;
+  }
+
+  .content-section .popular a {
+    font-size: 16px;
+  }
+
+  .container {
+    justify-content: center;
+  }
+
+  .image-container img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar input {
+    width: 200px;
+  }
+
+  .image-container img {
+    width: 120px;
+    height: 120px;
+  }
+
+  #mood-controls {
+    padding: 10px;
+  }
+
+  #mood-controls button {
+    padding: 7px 12px;
+  }
+}

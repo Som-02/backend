@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-color: #101f30;
+  background-image: url("image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: soft-light;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* keeps footer at bottom */
+}
+
+/* Contact section above footer */
+.contactus {
+  text-align: center;
+  color: rgb(0, 255, 166);
+  text-shadow: 0 0 10px rgba(0, 255, 166, 0.9);
+  font-size: 1em;
+  margin-bottom: 130px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  color: #fff;
+  font-size: 0.9em;
+  text-shadow: 0 0 8px rgba(0, 255, 166, 0.7);
+  padding: 0px ;
+  background: rgba(16, 31, 48, 0.6);
+  width: 100%;
+  position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contactus {
+    font-size: 0.95em;
+    padding: 8px 10px;
+  }
+
+  footer {
+    font-size: 0.85em;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="contactus">
+        <p>02iamsomnath@gmail.com || +91 7449497610 || Somnath Pal</p>
+    </div>
+    <footer>
+        <p>&copy;2024 Music Wave. All rights reserved by Somnath.</p>
+    </footer>
+</body>
+</html>

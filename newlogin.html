@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Wave - Register</title>
+  <link rel="stylesheet" href="newlogin.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Music Wave</h1>
+      <div class="Logo"><img src="logo.png" alt="Music Wave Logo"></div>
+    </div>
+  </header>
+
+  <section id="home" class="hero-section">
+    <div class="login-form">
+      <h2>Register</h2>
+      <form action="#" onsubmit="signup(event)">
+        <input type="text" id="username" placeholder="Username (e.g. user123 - for demo)" required>
+        <input type="password" id="password" placeholder="Password (e.g. password123 - for demo)" required>
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy;2024 Music Wave. All rights reserved by Somnath.</p>
+  </footer>
+  <script>
+async function signup(event) {
+  event.preventDefault(); // 🚫 stop page reload
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  const res = await fetch("/signup", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password }),
+  });
+
+  const data = await res.json();
+  alert(data.message);
+
+  if (res.ok) {
+    localStorage.setItem("isLoggedIn", "true");
+    window.location.href = "demo.html"; // ✅ go directly to demo
+  }
+}
+onclick="window.location.href='wave.html'"
+
+</script>
+
+</body>
+</html>
