@@ -35,7 +35,7 @@ async function signup(event) {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
-  const res = await fetch("https://backend-2-g419.onrender.com/signup", {
+  const res = await fetch("/signup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
